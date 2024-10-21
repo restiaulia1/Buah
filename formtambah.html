@@ -30,24 +30,24 @@
       </from>
 
       <script type="module">
-    import { tambahBuah } from "./main.js";
-    
-    $(document).ready(async function() {
-      // ambil data dari formulir
-      
-      // ketika tombol tambah di pencet
-      $("#tombolsimpan").click(async function(event) {
-        event.preventDefault()
-        
-        let Nama = $("#inputnama").val()
-      let Warna = $("#inputwarna").val()
-      let Harga = $("#inputharga").val()
-        
-        await tambahBuah(Nama,Warna, Harga)
-        window.location.href ="index.html"
-      })
-   })
-  </script>
+        import { tambahBuah } from "./main.js";
+
+        $(document).ready(async function() {
+          // ambil data dari formulir
+
+          // ketika tombol tambah di pencet
+          $("#tombolsimpan").click(async function(event) {
+            event.preventDefault()
+
+            let nama = $("#inputnama").val()
+            let warna = $("#inputwarna").val()
+            let harga = $("#inputharga").val()
+
+            await tambahBuah(nama, warna, harga)
+            window.location.href = "index.html"
+          })
+        })
+      </script>
 </body>
 
 </html>

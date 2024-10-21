@@ -28,48 +28,33 @@
       </thead>
       <tbody>
       </tbody>
-        
-        <a href="formulirtambah.html">Tambah buah</a>
-      
-    
-    
-    <script type="module">
-      import { ambilDaftarbuah } from './main.js';
-      
-      $(document).ready(async function() {
-        let elemenDaftarbuah = $("#daftar-buah > tbody");
-        let daftarbuah = await ambilDaftarbuah();
-          
-        
-        
-daftarbuah.forEach((data) => {
-        elemenDaftarbuah.append(
-          "<tr>" +
-          "<td>" + "</td>" +
-          "<td>" + data.Nama + "</td>" +
-          "<td>" + data.Warna + "</td>" +
-         "<td>" + data.Harga + "</td>" +
-          "<td>" + "<a href='#' class='me-2 link-ubah' data='" +data.id + "'>ubah</a><button class='btn btn-danger tombol-hapus' data='"+data.id + "'>hapus</button> " + "</td>" +
-          "</tr>"
-          )
-      })
-      
-      $('.tombol-hapus').click(async function() {
-        await hapusbuah($(this).attr('data'))
-        location.reload()
-    })
-    
-$('.link-ubah').click(async function() {
-      location.replace('formulirubah.html?id=' + $(this).attr('data'))
-      
-    })
-    
-    })
-     ''
-      
-    </script>
-     
-    
+
+      <a href="formtambah.html">Tambah buah</a>
+
+
+
+      <script type="module">
+        import { ambilDaftarbuah } from './main.js';
+
+        $(document).ready(async function() {
+          let elemenDaftarBuah = $("#daftar-buah > tbody");
+          let daftarBuah = await ambilDaftarbuah();
+
+          daftarBuah.forEach((data) => {
+            elemenDaftarBuah.append(
+              "<tr>" +
+              "<td>" + "</td>" +
+              "<td>" + data.nama + "</td>" +
+              "<td>" + data.warna + "</td>" +
+              "<td>" + data.harga + "</td>" +
+              "<td>" + "<a href='#' class='me-2 link-ubah' data='" + data.id + "'>ubah</a><button class='btn btn-danger tombol-hapus' data='" + data.id + "'>hapus</button> " + "</td>" +
+              "</tr>"
+            )
+          })
+        })
+      </script>
+
+
     </table>
   </body>
 
