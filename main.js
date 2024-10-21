@@ -27,20 +27,39 @@ const aplikasi = initializeApp(firebaseConfig)
 const basisdata = getFirestore(aplikasi)
 
 
-export async function tambahBuah(Nama,Warna, Harga) {
+export async function tambahBuah(nama,Warna, harga) {
   try {
     // menyimpan data ke firebase
     const refDoKumen = await addDoc(collection(basisdata, "Buah"),{
-      Nama: Nama,
-      Warna: Warna,
-      Harga: Harga,
+      nama: nama,
+      warna: warna,
+      harga: harga,
     })
     
     //menampilkan pesan berhasil 
-    console.log("berhasil menyimpan data buah")
+    console.log("berhasil menyimpan data Buah")
   } catch (error) {
      // menampilkan pesan gagal
-     console.log("gagal menyimpan data buah")
+     console.log("gagal menyimpan data Buah")
   
   } 
+}
+
+export async function ambilDaftarbuah() {
+  const refDoKumen = collection(basisdata, "Buah");
+  const kueri = query(refDoKumen, orderBy("Nama"));
+  const cuplikankueri = await getDocs(kueri);
+  
+  let hasilkueri = [];
+  cuplikankueri.forEach((dokumen) => {
+    hasilkueri.push({
+      id: dokumen.id,
+      Nama: dokumen.data().Nama,
+      Warna: dokumen.data().Warna,
+      Harga: dokumen.data(). Harga
+     
+    })
+  })
+  
+  return hasilkueri;
 }
