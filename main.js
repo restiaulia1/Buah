@@ -27,13 +27,13 @@ const aplikasi = initializeApp(firebaseConfig)
 const basisdata = getFirestore(aplikasi)
 
 
-export async function tambahBuah(nama,Warna, harga) {
+export async function tambahBuah(Nama,Warna, Harga) {
   try {
     // menyimpan data ke firebase
     const refDoKumen = await addDoc(collection(basisdata, "Buah"),{
-      nama: nama,
-      warna: warna,
-      harga: harga,
+      Nama: Nama,
+      Warna: Warna,
+      Harga: Harga
     })
     
     //menampilkan pesan berhasil 
@@ -56,7 +56,7 @@ export async function ambilDaftarbuah() {
       id: dokumen.id,
       Nama: dokumen.data().Nama,
       Warna: dokumen.data().Warna,
-      Harga: dokumen.data(). Harga
+      Harga: dokumen.data().Harga
      
     })
   })
