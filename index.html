@@ -34,7 +34,7 @@
 
 
       <script type="module">
-        import { ambilDaftarbuah } from './main.js';
+        import { ambilDaftarbuah, hapusBuah } from './main.js';
 
         $(document).ready(async function() {
           let elemenDaftarBuah = $("#daftar-buah > tbody");
@@ -51,6 +51,12 @@
               "</tr>"
             )
           })
+          
+          $(".tombol-hapus").click(async function(){
+          await hapusBuah($(this).attr('data'))
+          location.reload()
+        })
+        
         })
       </script>
 

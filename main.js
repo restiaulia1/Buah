@@ -63,3 +63,7 @@ export async function ambilDaftarbuah() {
 
   return hasilkueri;
 }
+
+export async function hapusBuah(id) {
+  await deleteDoc(doc(basisdata, "buah", id))
+}
